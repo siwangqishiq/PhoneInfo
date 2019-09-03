@@ -12,6 +12,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.telephony.TelephonyManager;
 import android.text.TextUtils;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -40,6 +41,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        ViewGroup s;
         mAndroidIdText = findViewById(R.id.androdid);
         mCopyAndroidBtn = findViewById(R.id.copy_androidid);
         mCopyAndroidBtn.setOnClickListener(this);
@@ -55,6 +57,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         getPhoneInfo();
         Toast.makeText(this, "是否开启了开发者模式" + Utils.isDevMode(this), Toast.LENGTH_SHORT).show();
+
+        System.out.println("WIFI ; " + Utils.getWIFISSID(this));
+        System.out.println("macAddress ; " + Utils.macAddr(this));
     }
 
 
